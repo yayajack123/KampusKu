@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Kampus.DetailActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/gambar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/hero"/>
+
+            <TextView
+                android:id="@+id/tentang"
+                android:padding="10dp"
+                android:layout_below="@+id/gambar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Tentang universitas"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/lokasi_detail"
+                android:layout_alignParentRight="true"
+                android:drawableLeft="@drawable/ic_location_on_black_24dp"
+                android:padding="10dp"
+                android:layout_below="@+id/gambar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Jimbaran, Bali"
+                android:layout_marginRight="10dp"/>
+            <TextView
+                android:id="@+id/deskripsi"
+                android:layout_below="@+id/tentang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Deskripsi"
+                android:layout_margin="10dp"/>
+
+            <TextView
+                android:id="@+id/jurusan"
+                android:layout_below="@id/deskripsi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jurusan"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                />
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/jurusan"
+                android:layout_margin="10dp"/>
+                </RelativeLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_daftar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#009688"
+        android:text="Daftar Kampus"
+        android:textColor="#fff"/>
+</RelativeLayout>
