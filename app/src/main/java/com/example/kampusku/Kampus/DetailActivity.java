@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.example.kampusku.ApiHelper.BaseApiHelper;
 import com.example.kampusku.ApiHelper.UtilsApi;
+import com.example.kampusku.BottomActivity;
 import com.example.kampusku.MainActivity;
 import com.example.kampusku.R;
 
@@ -70,7 +71,7 @@ public class DetailActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                startActivity(new Intent(getBaseContext(), MainActivity.class));
+                startActivity(new Intent(getBaseContext(), BottomActivity.class));
                 finish();
                 break;
 

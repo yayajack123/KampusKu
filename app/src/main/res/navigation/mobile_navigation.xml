@@ -12,6 +12,12 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
+        android:id="@+id/navigation_maps"
+        android:name="com.example.kampusku.ui.ui.maps.MapsFragment"
+        android:label="Maps"
+        tools:layout="@layout/maps_fragment" />
+
+    <fragment
         android:id="@+id/navigation_account"
         android:name="com.example.kampusku.Fragment.UserFragment"
         android:label="@string/title_dashboard"
