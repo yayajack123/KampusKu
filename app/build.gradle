@@ -5,7 +5,7 @@ android {
     defaultConfig {
         applicationId "com.example.kampusku"
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -38,4 +38,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
     implementation 'br.com.simplepass:loading-button-android:1.14.0'
     implementation 'de.hdodenhof:circleimageview:3.0.1'
+    implementation 'com.google.android.gms:play-services-maps:15.0.0'
+    implementation 'com.google.android.libraries.places:places:1.0.0'
+    implementation 'com.skyfishjy.ripplebackground:library:1.0.1'
 }

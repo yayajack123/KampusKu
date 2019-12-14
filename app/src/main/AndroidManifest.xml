@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.kampusku">
@@ -12,12 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".User.EditProfile"></activity>
-        <activity android:name=".Daftar.Daftar">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="" />
 
-        </activity>
-        <activity android:name=".ui.Maps" />
-        <activity android:name=".Admin.UpdateProdi" />
+        <activity android:name=".Admin.UpdateProdi"></activity>
         <activity android:name=".Admin.TambahProdi" />
         <activity android:name=".Admin.ProdiActivity" />
         <activity
@@ -46,6 +46,8 @@
             android:name=".RegisterActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Kampus.KampusList" />
+        <activity android:name=".MapsActivity" />
+        <activity android:name=".MapsDetailActivity" />
     </application>
 
 </manifest>
