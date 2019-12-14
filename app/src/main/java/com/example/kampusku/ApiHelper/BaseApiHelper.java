@@ -1,5 +1,6 @@
 package com.example.kampusku.ApiHelper;
 
+import com.example.kampusku.Daftar.GetDaftar;
 import com.example.kampusku.Fakultas.GetFakultas;
 import com.example.kampusku.Kampus.GetDetail;
 import com.example.kampusku.Kampus.GetKampus;
@@ -36,6 +37,13 @@ public interface BaseApiHelper {
                                        @Field("email") String email,
                                        @Field("password") String password,
                                        @Field("c_password") String c_password);
+
+
+    @FormUrlEncoded
+    @POST("edituser/{id}")
+    Call<ResponseBody> editUser(@Path("id") int id ,
+                                @Field("name") String nama,
+                                @Field("email") String email);
 
     @GET("kampus")
     Call<GetKampus> getKampus();
@@ -89,5 +97,8 @@ public interface BaseApiHelper {
 
     @DELETE("prodi/{id}")
     Call<ResponseBody> DeleteProdi(@Path("id") int id);
+
+    @GET("daftar")
+    Call<GetDaftar> GetDaftar();
 
 }

@@ -12,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Daftar.Daftar"></activity>
+        <activity android:name=".User.EditProfile"></activity>
+        <activity android:name=".Daftar.Daftar">
+
+        </activity>
         <activity android:name=".ui.Maps" />
         <activity android:name=".Admin.UpdateProdi" />
         <activity android:name=".Admin.TambahProdi" />

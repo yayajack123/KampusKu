@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.NestedScrollView;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -22,11 +23,13 @@ import android.widget.TextView;
 
 import com.example.kampusku.ApiHelper.BaseApiHelper;
 import com.example.kampusku.ApiHelper.UtilsApi;
+import com.example.kampusku.Daftar.Daftar;
 import com.example.kampusku.Kampus.GetKampus;
 import com.example.kampusku.Kampus.KampusList;
 import com.example.kampusku.Kampus.KampusRecyclerUserAdapter;
 import com.example.kampusku.Kampus.ResultKampus;
 import com.example.kampusku.R;
+import com.example.kampusku.User.EditProfile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +41,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HomeFragment extends Fragment {
-    Button btnKampus;
     public static final String URL = "https://guarded-woodland-53288.herokuapp.com/api/";
     private List<ResultKampus> results = new ArrayList<>();
     private KampusRecyclerUserAdapter viewAdapter;
@@ -47,14 +49,23 @@ public class HomeFragment extends Fragment {
     String nama_univ = "";
     RecyclerView recyclerView;
     ProgressBar progressBar;
-    FloatingActionButton gaskan;
-    NestedScrollView test;
+    CardView pindah;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        final View view = inflater.inflate(R.layout.fragment_home, container, false);
         progressBar = (ProgressBar) view.findViewById(R.id.progress_bar);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view1);
+        pindah = (CardView) view.findViewById(R.id.card_daftar);
+
+        pindah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mIntent = new Intent(view.getContext(), Daftar.class);
+                view.getContext().startActivity(mIntent);
+            }
+        });
+
         mApiService = UtilsApi.getAPIService();
         viewAdapter = new KampusRecyclerUserAdapter(getActivity(), results);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());

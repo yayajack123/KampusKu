@@ -17,8 +17,10 @@ import android.widget.TextView;
 
 import com.example.kampusku.ApiHelper.BaseApiHelper;
 import com.example.kampusku.ApiHelper.UtilsApi;
+import com.example.kampusku.Kampus.UpdateKampus;
 import com.example.kampusku.LoginActivity;
 import com.example.kampusku.R;
+import com.example.kampusku.User.EditProfile;
 import com.example.kampusku.User.ValueUser;
 
 import okhttp3.ResponseBody;
@@ -33,7 +35,9 @@ import static com.example.kampusku.Fragment.HomeFragment.URL;
 import static com.example.kampusku.LoginActivity.TAG_ADMIN;
 
 public class UserFragment extends Fragment {
+    public static final String URL = "https://guarded-woodland-53288.herokuapp.com/api/";
     BaseApiHelper mApiService;
+    Button edit;
     TextView btnLogout;
     SharedPreferences sharedPreferences;
     boolean session = false;
@@ -53,7 +57,13 @@ public class UserFragment extends Fragment {
         session = sharedPreferences.getBoolean(SESSION_STATUS, false);
         token = sharedPreferences.getString(TAG_TOKEN, null);
         id_user = sharedPreferences.getInt(String.valueOf(TAG_ID),0);
+        final TextView nama = view.findViewById(R.id.nama);
+        final TextView email = view.findViewById(R.id.email);
+        final TextView namab = view.findViewById(R.id.nama_bawah);
+        final TextView emailb = view.findViewById(R.id.email_bawah);
+
         Log.d(TAG, "onCreateView: "+id_user);
+        edit = (Button) view.findViewById(R.id.edit_profil);
         btnLogout = (TextView) view.findViewById(R.id.button_logoutMain);
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +80,18 @@ public class UserFragment extends Fragment {
             }
         });
 
+        edit.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent mIntent = new Intent(view.getContext(), EditProfile.class);
+                mIntent.putExtra("nama", namab.getText());
+                mIntent.putExtra("email", emailb.getText());
+                mIntent.putExtra("id_user",id_user);
+                view.getContext().startActivity(mIntent);
+            }
+        });
+
         mApiService = UtilsApi.getAPIService();
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(URL)
@@ -83,10 +105,7 @@ public class UserFragment extends Fragment {
 
                 String nama_user = response.body().getName();
                 String email_user = response.body().getEmail();
-                TextView nama = view.findViewById(R.id.nama);
-                TextView email = view.findViewById(R.id.email);
-                TextView namab = view.findViewById(R.id.nama_bawah);
-                TextView emailb = view.findViewById(R.id.email_bawah);
+
                 namab.setText(nama_user);
                 emailb.setText(email_user);
                 nama.setText(nama_user);

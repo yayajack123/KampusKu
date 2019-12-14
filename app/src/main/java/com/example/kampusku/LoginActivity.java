@@ -65,21 +65,21 @@ public class LoginActivity extends AppCompatActivity {
         mContext = this;
         mApiService = UtilsApi.getAPIService(); // meng-init yang ada di package apihelper
         sharedPreferences = getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
-        sharedPreferences2 = getSharedPreferences(SHARED_PREFERENCES_test, Context.MODE_PRIVATE);
         session = sharedPreferences.getBoolean(SESSION_STATUS, false);
         token = sharedPreferences.getString(TAG_TOKEN, null);
         id_user = sharedPreferences.getInt(String.valueOf(TAG_ID),0);
         admin = sharedPreferences.getInt(String.valueOf(TAG_ADMIN),0);
         Log.d("asasa", "onCreate: admin  "+admin);
-        if (admin==2){
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        if (admin==1){
+            Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
             intent.putExtra(TAG_TOKEN, token);
-            intent.putExtra(String.valueOf(TAG_ADMIN),admin);
             intent.putExtra(String.valueOf(TAG_ID),id_user);
+            intent.putExtra(String.valueOf(TAG_ADMIN),admin);
             finish();
             startActivity(intent);
-        }else if(admin==1){
-            Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
+        }
+        if(id_user!=NULL){
+            Intent intent = new Intent(LoginActivity.this, BottomActivity.class);
             intent.putExtra(TAG_TOKEN, token);
             intent.putExtra(String.valueOf(TAG_ID),id_user);
             intent.putExtra(String.valueOf(TAG_ADMIN),admin);
@@ -144,7 +144,7 @@ public class LoginActivity extends AppCompatActivity {
                                     Integer is_admin = jsonRESULTS.getJSONObject("user").getInt("is_admin");
                                     Log.d("admin", "onResponse: "+is_admin);
                                     token = sukses;
-                                    if (is_admin==2){
+                                    if (id!=NULL){
                                         admin = is_admin;
                                         Log.d("admin", "onanjay "+admin);
                                         SharedPreferences.Editor editor = sharedPreferences.edit();

@@ -7,9 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import com.example.kampusku.Kampus.DetailRecylerAdminAdapter;
-import com.example.kampusku.Kampus.ResultDetail;
 import com.example.kampusku.R;
 
 import java.util.List;
@@ -29,7 +26,7 @@ public class DaftarAdapter extends RecyclerView.Adapter<DaftarAdapter.ViewHolder
     @NonNull
     @Override
     public DaftarAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_detail, viewGroup, false);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_daftar, viewGroup, false);
         DaftarAdapter.ViewHolder holder = new DaftarAdapter.ViewHolder(v);
 
         return holder;
@@ -39,14 +36,14 @@ public class DaftarAdapter extends RecyclerView.Adapter<DaftarAdapter.ViewHolder
     public void onBindViewHolder(@NonNull DaftarAdapter.ViewHolder holder, int position) {
         final ResultDaftar result = results.get(position);
         holder.Univ.setText(result.getNama_univ());
-        holder.Fee.setText(result.getFee());
+        holder.Fee.setText(String.valueOf(result.getFee()));
         holder.Prodi.setText(result.getNama_prodi());
-        holder.biaya.setText(result.getBiaya());
+        holder.biaya.setText(String.valueOf(result.getBiaya()));
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return results.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
