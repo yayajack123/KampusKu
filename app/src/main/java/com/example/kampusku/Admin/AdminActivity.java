@@ -1,30 +1,26 @@
 package com.example.kampusku.Admin;
 
-import android.app.ActionBar;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.widget.NestedScrollView;
-import android.support.v7.app.AppCompatActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.core.widget.NestedScrollView;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import com.example.kampusku.ApiHelper.BaseApiHelper;
 import com.example.kampusku.ApiHelper.UtilsApi;
 import com.example.kampusku.Kampus.GetKampus;
-import com.example.kampusku.Kampus.KampusList;
 import com.example.kampusku.Kampus.KampusRecyclerViewAdapter;
 import com.example.kampusku.Kampus.ResultKampus;
 import com.example.kampusku.Kampus.TambahKampus;
-import com.example.kampusku.LoginActivity;
 import com.example.kampusku.R;
 
 import java.util.ArrayList;

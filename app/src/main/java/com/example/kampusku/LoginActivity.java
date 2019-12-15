@@ -5,21 +5,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.example.kampusku.Admin.AdminActivity;
 import com.example.kampusku.Admin.AdminLoginActivity;
-import com.example.kampusku.ApiHelper.AccessToken;
 import com.example.kampusku.ApiHelper.BaseApiHelper;
 import com.example.kampusku.ApiHelper.UtilsApi;
 

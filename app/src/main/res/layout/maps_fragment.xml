@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/maps"
@@ -12,17 +12,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="MapsFragment"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_centerInParent="true" />
 
     <Button
         android:id="@+id/start_maps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Start Maps"
+        android:layout_marginBottom="30dp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
         tools:layout_editor_absoluteX="161dp"
         tools:layout_editor_absoluteY="502dp" />
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

@@ -1,24 +1,19 @@
 package com.example.kampusku.Kampus;
 
 import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.widget.NestedScrollView;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.kampusku.ApiHelper.BaseApiHelper;
 import com.example.kampusku.ApiHelper.UtilsApi;
 import com.example.kampusku.BottomActivity;
-import com.example.kampusku.MainActivity;
 import com.example.kampusku.R;
 
 import java.util.ArrayList;
@@ -106,4 +101,6 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }

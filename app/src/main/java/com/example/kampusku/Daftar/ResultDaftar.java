@@ -2,7 +2,16 @@ package com.example.kampusku.Daftar;
 
 public class ResultDaftar {
     String nama_univ;
-    int id;
+
+    public int getId_daftar() {
+        return id_daftar;
+    }
+
+    public void setId_daftar(int id_daftar) {
+        this.id_daftar = id_daftar;
+    }
+
+    int id_daftar;
     int biaya;
     int fee;
 
@@ -14,13 +23,6 @@ public class ResultDaftar {
         this.nama_univ = nama_univ;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public int getBiaya() {
         return biaya;

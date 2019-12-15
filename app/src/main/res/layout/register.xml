@@ -37,7 +37,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"/>
             </RelativeLayout>
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -49,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:orientation="vertical">
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputName"
                         style="@style/parent"
                         android:layout_marginTop="@dimen/loginViewsMargin">
@@ -59,9 +59,9 @@
                             android:inputType="textPersonName"
                             android:maxLines="1"
                             android:hint="Name"/>
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputEmail"
                         style="@style/parent"
                         android:layout_marginTop="@dimen/loginViewsMargin">
@@ -71,8 +71,8 @@
                             android:inputType="textEmailAddress"
                             android:maxLines="1"
                             android:hint="@string/login_email_hint"/>
-                    </android.support.design.widget.TextInputLayout>
-                    <android.support.design.widget.TextInputLayout
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputMobile"
                         style="@style/parent"
                         android:layout_marginTop="@dimen/loginViewsMargin">
@@ -82,9 +82,9 @@
                             android:inputType="textPassword"
                             android:maxLines="1"
                             android:hint="Password"/>
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/textInputPassword"
                         style="@style/parent"
                         android:layout_marginTop="@dimen/loginViewsMargin">
@@ -94,7 +94,7 @@
                             android:hint="Confirm Password"
                             android:maxLines="1"
                             android:inputType="textPassword"/>
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
                     <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
                         android:id="@+id/button_signupSignup"
@@ -119,7 +119,7 @@
                         />
 
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
 
             <LinearLayout

@@ -1,21 +1,19 @@
 package com.example.kampusku.Daftar;
 
+import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.content.SharedPreferences;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
 
 import com.example.kampusku.ApiHelper.BaseApiHelper;
 import com.example.kampusku.ApiHelper.UtilsApi;
 import com.example.kampusku.BottomActivity;
-import com.example.kampusku.Kampus.DetailActivity;
-import com.example.kampusku.Kampus.DetailRecylerViewAdapter;
-import com.example.kampusku.Kampus.GetDetail;
-import com.example.kampusku.Kampus.ResultDetail;
 import com.example.kampusku.R;
 
 import java.util.ArrayList;
@@ -35,10 +33,17 @@ public class Daftar extends AppCompatActivity {
     RecyclerView recyclerView;
     BaseApiHelper mApiService;
     DaftarAdapter viewAdapter;
+    int id_user;
+    final String SHARED_PREFERENCES_NAME = "shared_preferences";
+    public final static Integer TAG_ID = 0;
+    SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar);
+
+        sharedPreferences = getBaseContext().getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
+        id_user = sharedPreferences.getInt(String.valueOf(TAG_ID),0);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_daftar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -71,7 +76,7 @@ public class Daftar extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         BaseApiHelper api = retrofit.create(BaseApiHelper.class);
-        Call<GetDaftar> call = api.GetDaftar();
+        Call<GetDaftar> call = api.GetDaftar(id_user);
         Log.e("PROGRESSSS", "SUDAH SAMPAI SINI");
         call.enqueue(new Callback<GetDaftar>() {
             @Override

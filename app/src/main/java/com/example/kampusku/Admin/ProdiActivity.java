@@ -1,12 +1,12 @@
 package com.example.kampusku.Admin;
 
 import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,13 +14,9 @@ import android.widget.TextView;
 
 import com.example.kampusku.ApiHelper.BaseApiHelper;
 import com.example.kampusku.ApiHelper.UtilsApi;
-import com.example.kampusku.Kampus.DetailActivity;
 import com.example.kampusku.Kampus.DetailRecylerAdminAdapter;
-import com.example.kampusku.Kampus.DetailRecylerViewAdapter;
 import com.example.kampusku.Kampus.GetDetail;
 import com.example.kampusku.Kampus.ResultDetail;
-import com.example.kampusku.Kampus.TambahKampus;
-import com.example.kampusku.MainActivity;
 import com.example.kampusku.R;
 
 import java.util.ArrayList;
@@ -31,8 +27,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
-import static com.example.kampusku.Admin.AdminActivity.URL;
 
 public class ProdiActivity extends AppCompatActivity {
 

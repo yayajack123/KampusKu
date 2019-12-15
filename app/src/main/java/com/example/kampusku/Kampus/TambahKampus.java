@@ -3,24 +3,20 @@ package com.example.kampusku.Kampus;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.kampusku.Admin.AdminActivity;
 import com.example.kampusku.ApiHelper.BaseApiHelper;
 import com.example.kampusku.ApiHelper.UtilsApi;
-import com.example.kampusku.LoginActivity;
-import com.example.kampusku.MainActivity;
 import com.example.kampusku.R;
 
-import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;

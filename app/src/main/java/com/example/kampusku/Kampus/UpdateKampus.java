@@ -1,9 +1,8 @@
 package com.example.kampusku.Kampus;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -16,8 +15,6 @@ import com.example.kampusku.Admin.AdminActivity;
 import com.example.kampusku.ApiHelper.BaseApiHelper;
 import com.example.kampusku.ApiHelper.UtilsApi;
 import com.example.kampusku.R;
-
-import java.util.Arrays;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
