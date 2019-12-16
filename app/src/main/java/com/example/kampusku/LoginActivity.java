@@ -138,9 +138,9 @@ public class LoginActivity extends AppCompatActivity {
                                     String sukses = jsonRESULTS.getJSONObject("data").getString("token");
                                     Log.d("wanjay", "onResponse: "+sukses);
                                     String name = jsonRESULTS.getJSONObject("user").getString("name");
-                                    Integer id = jsonRESULTS.getJSONObject("user").getInt("id");
+                                    int id = jsonRESULTS.getJSONObject("user").getInt("id");
                                     Log.d("id_user", "onResponse: "+id);
-                                    Integer is_admin = jsonRESULTS.getJSONObject("user").getInt("is_admin");
+                                    int is_admin = jsonRESULTS.getJSONObject("user").getInt("is_admin");
                                     Log.d("admin", "onResponse: "+is_admin);
                                     token = sukses;
                                     if (id!=NULL){
@@ -187,9 +187,9 @@ public class LoginActivity extends AppCompatActivity {
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
                                     editor.putBoolean(SESSION_STATUS, true);
                                     editor.putInt(String.valueOf(TAG_ID), user.getId());
-                                    editor.putInt(String.valueOf(TAG_ADMIN),admin);
+                                    editor.putInt(String.valueOf(TAG_ADMIN),user.getIs_admin());
                                     editor.commit();
-                                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                                    Intent i = new Intent(getApplicationContext(), BottomActivity.class);
                                     startActivity(i);
                                 }
                             }
