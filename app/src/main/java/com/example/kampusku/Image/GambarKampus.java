@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.kampusku.ApiHelper.BaseApiHelper;
@@ -43,7 +44,7 @@ public class GambarKampus extends AppCompatActivity {
     String mediaPath;
     ImageView imgView;
     String[] mediaColumns = { MediaStore.Video.Media._ID };
-    ProgressDialog progressDialog;
+    ProgressBar progressDialog;
     BaseApiHelper mApiService;
     ProgressDialog loading;
     @Override
@@ -51,8 +52,7 @@ public class GambarKampus extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gambar_kampus);
 
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Uploading...");
+        progressDialog = (ProgressBar) findViewById(R.id.loading);
         mApiService = UtilsApi.getAPIService();
         btnUpload = (Button) findViewById(R.id.upload);
         btnPickImage = (Button) findViewById(R.id.pick_img);
@@ -124,6 +124,7 @@ public class GambarKampus extends AppCompatActivity {
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                         if (response.isSuccessful()){
                             Log.i("debug", "onResponse: BERHASIL");
+                            loading.dismiss();
                             try {
                                 JSONObject jsonRESULTS = new JSONObject(response.body().string());
                                 String error = jsonRESULTS.getString("status");
@@ -139,7 +140,7 @@ public class GambarKampus extends AppCompatActivity {
                             }
                         } else {
                             Log.i("debug", "onResponse: GA BERHASIL");
-
+                            loading.dismiss();
                         }
                     }
 

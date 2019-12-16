@@ -91,7 +91,8 @@ public class UserFragment extends Fragment {
         });
 
         foto = (ImageView) view.findViewById(R.id.profil_image);
-        Glide.with(requireContext()).load("https://guarded-woodland-53288.herokuapp.com/image/user_image.jpg").into(foto);
+        Glide.with(requireContext()).load("https://guarded-woodland-53288.herokuapp.com/image/user_image.jpg")
+                                    .into(foto);
 
 
         mApiService = UtilsApi.getAPIService();

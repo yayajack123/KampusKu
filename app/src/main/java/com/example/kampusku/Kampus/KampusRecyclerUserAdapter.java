@@ -7,8 +7,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.kampusku.R;
 
 import java.util.List;
@@ -29,7 +33,7 @@ public class KampusRecyclerUserAdapter  extends RecyclerView.Adapter<KampusRecyc
     public KampusRecyclerUserAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.card_kampus_user, viewGroup, false);
         KampusRecyclerUserAdapter.ViewHolder holder = new KampusRecyclerUserAdapter.ViewHolder(v);
-
+        context = viewGroup.getContext();
         return holder;
     }
 
@@ -49,6 +53,13 @@ public class KampusRecyclerUserAdapter  extends RecyclerView.Adapter<KampusRecyc
                 view.getContext().startActivity(mIntent);
             }
         });
+        RequestOptions myOptions = new RequestOptions()
+                .override(100, 100);
+        Glide.with(context)
+                .asBitmap()
+                .apply(myOptions)
+                .load("https://guarded-woodland-53288.herokuapp.com/image/unud.jpg")
+                .into(holder.kampus);
     }
 
     @Override
@@ -60,12 +71,13 @@ public class KampusRecyclerUserAdapter  extends RecyclerView.Adapter<KampusRecyc
 
         TextView textViewKategori;
         TextView textViewAlamat;
-
+        ImageView kampus;
 
         public ViewHolder(View itemView) {
             super(itemView);
             textViewKategori = itemView.findViewById(R.id.kampus);
             textViewAlamat = itemView.findViewById(R.id.alamat);
+            kampus = itemView.findViewById(R.id.gambar_kampus);
         }
     }
 }

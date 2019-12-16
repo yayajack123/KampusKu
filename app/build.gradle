@@ -46,4 +46,10 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
     implementation 'com.vincent.filepicker:MultiTypeFilePicker:1.0.7'
     implementation 'pub.devrel:easypermissions:1.2.0'
+    //room
+    implementation 'android.arch.persistence.room:runtime:1.1.1'
+    annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
+
+    //Stetho
+    implementation 'com.facebook.stetho:stetho:1.5.1'
 }

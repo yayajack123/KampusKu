@@ -14,6 +14,9 @@ import android.widget.Toast;
 
 import com.example.kampusku.ApiHelper.BaseApiHelper;
 import com.example.kampusku.ApiHelper.UtilsApi;
+import com.example.kampusku.Database.AppDatabase;
+import com.example.kampusku.Database.AppExecutors;
+import com.example.kampusku.Model.User;
 
 import br.com.simplepass.loading_button_lib.customViews.CircularProgressButton;
 import okhttp3.ResponseBody;
@@ -32,6 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
     ImageView balik;
     Context mContext;
     BaseApiHelper mApiService;
+    AppDatabase mDb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +84,19 @@ public class RegisterActivity extends AppCompatActivity {
                             Log.i("debug", "onResponse: BERHASIL");
                             loading.dismiss();
                                     Toast.makeText(mContext, "BERHASIL REGISTRASI", Toast.LENGTH_SHORT).show();
+                                        mDb = AppDatabase.getDatabase(getApplicationContext());
+                                        final User data = new User(
+                                                etNama.getText().toString(),
+                                                etEmail.getText().toString(),
+                                                etPassword.getText().toString(),
+                                                2
+                                        );
+                                        AppExecutors.getInstance().diskIO().execute(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                mDb.userDao().insertUser(data);
+                                            }
+                                        });
                                     startActivity(new Intent(mContext, LoginActivity.class));
                                 } else {
                                     Toast.makeText(mContext, "Gagal", Toast.LENGTH_SHORT).show();

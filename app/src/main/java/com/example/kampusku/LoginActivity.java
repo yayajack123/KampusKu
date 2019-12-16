@@ -17,6 +17,9 @@ import com.example.kampusku.Admin.AdminActivity;
 import com.example.kampusku.Admin.AdminLoginActivity;
 import com.example.kampusku.ApiHelper.BaseApiHelper;
 import com.example.kampusku.ApiHelper.UtilsApi;
+import com.example.kampusku.Database.AppDatabase;
+import com.example.kampusku.Database.AppExecutors;
+import com.example.kampusku.Model.User;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -52,7 +55,8 @@ public class LoginActivity extends AppCompatActivity {
     public final static String TAG_TOKEN = "token";
     public final static Integer TAG_ID = 0;
     public final static Integer TAG_ADMIN = 0;
-
+    AppDatabase mDb;
+    User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -170,7 +174,26 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     @Override
                     public void onFailure(Call<ResponseBody> call, Throwable t) {
-                        Log.e("debug", "onFailure: ERROR > " + t.toString());
+                        Log.e("debug", "onFailure: OFFLINE > " + t.toString());
+                        Toast.makeText(mContext, "OFFLINE", Toast.LENGTH_SHORT).show();
+                        mDb = AppDatabase.getDatabase(getApplicationContext());
+                        AppExecutors.getInstance().diskIO().execute(new Runnable() {
+                            @Override
+                            public void run() {
+                                user = mDb.userDao().loginUser(etEmail.getText().toString(), etPassword.getText().toString());
+                                int id_user = user.getId();
+                                Log.e("test", "run: "+id_user);
+                                if (id_user > 0 ){
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putBoolean(SESSION_STATUS, true);
+                                    editor.putInt(String.valueOf(TAG_ID), user.getId());
+                                    editor.putInt(String.valueOf(TAG_ADMIN),admin);
+                                    editor.commit();
+                                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                                    startActivity(i);
+                                }
+                            }
+                        });
                         loading.dismiss();
                     }
 
