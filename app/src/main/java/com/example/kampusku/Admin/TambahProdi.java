@@ -32,7 +32,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class TambahProdi extends AppCompatActivity {
 
-    public static final String URL = "https://guarded-woodland-53288.herokuapp.com/api/";
+    public static final String URL = "https://kampusjack.000webhostapp.com/api/";
     List<String> sIds = new ArrayList<String>();
     EditText nProdi,tTentang,biaya;
     Spinner fakultas;

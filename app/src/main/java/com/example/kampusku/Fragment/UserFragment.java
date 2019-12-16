@@ -32,7 +32,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static android.content.ContentValues.TAG;
 
 public class UserFragment extends Fragment {
-    public static final String URL = "https://guarded-woodland-53288.herokuapp.com/api/";
+    public static final String URL = "https://kampusjack.000webhostapp.com/api/";
     BaseApiHelper mApiService;
     Button edit;
     TextView btnLogout;

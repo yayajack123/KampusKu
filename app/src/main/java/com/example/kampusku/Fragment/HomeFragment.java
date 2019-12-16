@@ -33,7 +33,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HomeFragment extends Fragment {
-    public static final String URL = "https://guarded-woodland-53288.herokuapp.com/api/";
+    public static final String URL = "https://kampusjack.000webhostapp.com/api/";
     private List<ResultKampus> results = new ArrayList<>();
     private KampusRecyclerUserAdapter viewAdapter;
     BaseApiHelper mApiService;

@@ -58,7 +58,7 @@ public class KampusRecyclerUserAdapter  extends RecyclerView.Adapter<KampusRecyc
         Glide.with(context)
                 .asBitmap()
                 .apply(myOptions)
-                .load("https://guarded-woodland-53288.herokuapp.com/image/unud.jpg")
+                .load("https://kampusjack.000webhostapp.com/image/unud.jpg")
                 .into(holder.kampus);
     }
 
