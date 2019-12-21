@@ -124,7 +124,7 @@ public class TambahProdi extends AppCompatActivity {
             public void onResponse(Call<GetFakultas> call, Response<GetFakultas> response) {
                 if (response.isSuccessful()) {
                 List<ResultFakultas> fakultasitem = response.body().getResult();
-                    Log.e("masuk", "onResponse: 11");
+                    Log.e("masuk", "onResponse: ");
                 List<String> listSpinner = new ArrayList<String>();
                 for (int i = 0; i < fakultasitem.size(); i++){
                     listSpinner.add(fakultasitem.get(i).getNama_fakultas());

@@ -91,8 +91,7 @@ public class UserFragment extends Fragment {
         });
 
         foto = (ImageView) view.findViewById(R.id.profil_image);
-        Glide.with(requireContext()).load("https://guarded-woodland-53288.herokuapp.com/image/user_image.jpg")
-                                    .into(foto);
+
 
 
         mApiService = UtilsApi.getAPIService();
@@ -108,11 +107,14 @@ public class UserFragment extends Fragment {
 
                 String nama_user = response.body().getName();
                 String email_user = response.body().getEmail();
+                String photo = response.body().getProfile_image();
 
                 namab.setText(nama_user);
                 emailb.setText(email_user);
                 nama.setText(nama_user);
                 email.setText(email_user);
+                Glide.with(requireContext()).load(photo)
+                        .into(foto);
                 Log.e(TAG, "onResponse: Masuk" );
             }
 

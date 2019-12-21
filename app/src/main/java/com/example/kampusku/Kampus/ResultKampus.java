@@ -16,6 +16,7 @@ public class ResultKampus {
     @SerializedName("tentang")
     @Expose
     private String tentang;
+    private String url;
 
 
 
@@ -49,5 +50,13 @@ public class ResultKampus {
 
     public void setTentang(String tentang) {
         this.tentang = tentang;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

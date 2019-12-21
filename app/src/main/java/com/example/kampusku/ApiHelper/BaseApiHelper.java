@@ -120,4 +120,11 @@ public interface BaseApiHelper {
     Call<ResponseBody> uploadFile(@Part MultipartBody.Part file,
                                   @Part("id_univ") int id_univ);
 
+    @Multipart
+    @POST("edituser/{id}")
+    Call<ResponseBody> updateuser(@Path("id") int id,
+                                  @Part MultipartBody.Part file,
+                                  @Part("name") String nama,
+                                  @Part("email") String email);
+
 }

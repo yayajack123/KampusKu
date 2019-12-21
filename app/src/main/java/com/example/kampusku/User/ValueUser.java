@@ -8,6 +8,16 @@ public class ValueUser {
     String message;
     String email;
     String name;
+
+    public String getProfile_image() {
+        return profile_image;
+    }
+
+    public void setProfile_image(String profile_image) {
+        this.profile_image = profile_image;
+    }
+
+    String profile_image;
     List<ResultProfile> result;
 
     public String getEmail() {
