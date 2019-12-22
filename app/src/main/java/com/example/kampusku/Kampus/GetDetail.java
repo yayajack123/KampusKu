@@ -8,6 +8,16 @@ public class GetDetail {
     List<ResultDetail> result = null;
     String message;
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    String url;
+
     public String getStatus() {
         return status;
     }

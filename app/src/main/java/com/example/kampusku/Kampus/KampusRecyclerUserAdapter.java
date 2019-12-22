@@ -50,6 +50,7 @@ public class KampusRecyclerUserAdapter  extends RecyclerView.Adapter<KampusRecyc
                 mIntent.putExtra("nama_univ", results.get(position).getKampus());
                 mIntent.putExtra("tentang", results.get(position).getTentang());
                 mIntent.putExtra("lokasi", results.get(position).getAlamat());
+                mIntent.putExtra("url",results.get(position).getUrl());
                 view.getContext().startActivity(mIntent);
             }
         });

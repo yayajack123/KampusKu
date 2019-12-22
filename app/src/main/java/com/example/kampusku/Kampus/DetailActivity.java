@@ -9,8 +9,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.kampusku.ApiHelper.BaseApiHelper;
 import com.example.kampusku.ApiHelper.UtilsApi;
 import com.example.kampusku.BottomActivity;
@@ -33,6 +36,7 @@ public class DetailActivity extends AppCompatActivity {
     private static String EXTRA = "extra";
     RecyclerView recyclerView;
     TextView edtTentang, edtLokasi;
+    ImageView big;
     int intValue;
 
     @Override
@@ -41,13 +45,19 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         edtTentang = (TextView) findViewById(R.id.deskripsi);
         edtLokasi = (TextView) findViewById(R.id.lokasi_detail);
+        big = (ImageView) findViewById(R.id.gambar);
         Intent mIntent = getIntent();
         intValue = mIntent.getIntExtra("id", 0);
         String gas = mIntent.getStringExtra("nama_univ");
+        String url = mIntent.getStringExtra("url");
         String test = String.valueOf(intValue);
         Log.d("jaja", "onCreate: "+test);
         edtTentang.setText(mIntent.getStringExtra("tentang"));
         edtLokasi.setText(mIntent.getStringExtra("lokasi"));
+        Glide.with(this)
+                .asBitmap()
+                .load(url)
+                .into(big);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_detail);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(gas);
@@ -87,6 +97,7 @@ public class DetailActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<GetDetail> call, Response<GetDetail> response) {
                 Log.e("PROGRESSSS", "SUDAH SAMPAI SINI2");
+                assert response.body() != null;
                 results = response.body().getResult();
                 Log.e("anjay", "onResponse: "+results );
                 Log.e("ERROR", "asa" + results.size());
