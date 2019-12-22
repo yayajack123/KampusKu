@@ -27,7 +27,17 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:maxLines="2"
-                    android:text="Hello Jack!" />
+                    android:text="Hello" />
+                <TextView
+                    android:id="@+id/namaku"
+                    style="@style/viewParent.headerText"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="85dp"
+                    android:layout_marginTop="20dp"
+                    android:maxLines="2"
+                    android:text="Jack!" />
 
 
             </RelativeLayout>

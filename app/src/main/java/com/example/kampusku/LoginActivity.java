@@ -154,6 +154,7 @@ public class LoginActivity extends AppCompatActivity {
                                         editor.apply();
                                         Toast.makeText(mContext, "ID ANDA " + id, Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(mContext, BottomActivity.class);
+                                        intent.putExtra("name", name);
                                         startActivity(intent);
                                         finish();
                                     }else {
