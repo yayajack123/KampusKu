@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
             finish();
             startActivity(intent);
         }
-        if(admin==2){
+        if(id_user!=NULL){
             Intent intent = new Intent(LoginActivity.this, BottomActivity.class);
             intent.putExtra(TAG_TOKEN, token);
             intent.putExtra(String.valueOf(TAG_ID),id_user);

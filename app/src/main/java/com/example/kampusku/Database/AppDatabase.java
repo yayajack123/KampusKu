@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase;
 import com.example.kampusku.DAO.UserDao;
 import com.example.kampusku.Model.User;
 
-@Database(entities = {User.class}, version =3)
+@Database(entities = {User.class}, version =3,  exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract UserDao userDao();
