@@ -31,7 +31,6 @@ public class MapsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.maps_fragment, container, false);
-        button = (Button) view.findViewById(R.id.start_maps);
         Intent intent = new Intent(getContext(), MapsActivity.class);
         startActivity(intent);
         return view;
