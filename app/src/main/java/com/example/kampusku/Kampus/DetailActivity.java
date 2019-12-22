@@ -87,7 +87,6 @@ public class DetailActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<GetDetail> call, Response<GetDetail> response) {
                 Log.e("PROGRESSSS", "SUDAH SAMPAI SINI2");
-                String value = response.body().getStatus();
                 results = response.body().getResult();
                 Log.e("anjay", "onResponse: "+results );
                 Log.e("ERROR", "asa" + results.size());

@@ -52,6 +52,9 @@ public interface BaseApiHelper {
     @GET("kampus")
     Call<GetKampus> getKampus();
 
+    @GET("search/{lokasi}")
+    Call<GetKampus> SearchKampus(@Path("lokasi") String lokasi);
+
     @GET("kampus/search/{nama_univ}")
     Call<GetKampus> getKampus(@Path("nama_univ") String nama_univ);
 

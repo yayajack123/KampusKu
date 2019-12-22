@@ -140,7 +140,12 @@
 
             </androidx.cardview.widget.CardView>
 
-
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:id="@+id/recycler_search"
+                />
             <!--remove the below layout with recycler view, use card poplar courses as model for design-->
 
 
