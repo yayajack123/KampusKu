@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.kampusku.Admin.ProdiActivity;
 import com.example.kampusku.R;
 
@@ -60,6 +62,14 @@ public class KampusRecyclerViewAdapter extends RecyclerView.Adapter<KampusRecycl
                 view.getContext().startActivity(mIntent);
             }
         });
+
+        RequestOptions myOptions = new RequestOptions()
+                .override(100, 100);
+        Glide.with(context)
+                .asBitmap()
+                .apply(myOptions)
+                .load(result.getUrl())
+                .into(holder.kampus);
     }
 
     @Override
@@ -72,6 +82,7 @@ public class KampusRecyclerViewAdapter extends RecyclerView.Adapter<KampusRecycl
         TextView textViewKategori;
         TextView textViewAlamat;
         ImageView edit_btn;
+        ImageView kampus;
 
 
         public ViewHolder(View itemView) {
@@ -79,6 +90,7 @@ public class KampusRecyclerViewAdapter extends RecyclerView.Adapter<KampusRecycl
             textViewKategori = itemView.findViewById(R.id.kampus);
             textViewAlamat = itemView.findViewById(R.id.alamat);
             edit_btn = itemView.findViewById(R.id.edit);
+            kampus = itemView.findViewById(R.id.gambar_kampus);
         }
     }
 }

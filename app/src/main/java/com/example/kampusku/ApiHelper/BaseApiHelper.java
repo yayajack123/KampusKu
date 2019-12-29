@@ -45,6 +45,9 @@ public interface BaseApiHelper {
     @GET("kampus")
     Call<GetKampus> getKampus();
 
+    @GET("getKampus")
+    Call<GetKampus> datakampus();
+
     @GET("search/{lokasi}")
     Call<GetKampus> SearchKampus(@Path("lokasi") String lokasi);
 
