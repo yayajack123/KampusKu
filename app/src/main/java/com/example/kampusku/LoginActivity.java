@@ -21,6 +21,7 @@ import com.example.kampusku.ApiHelper.UtilsApi;
 import com.example.kampusku.Database.AppDatabase;
 import com.example.kampusku.Database.AppExecutors;
 import com.example.kampusku.Model.User;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -54,8 +55,8 @@ public class LoginActivity extends AppCompatActivity {
     final String SHARED_PREFERENCES_test = "shared_preferences";
     final String SESSION_STATUS = "session";
     public final static String TAG_TOKEN = "token";
-    public final static Integer TAG_ID = 0;
-    public final static Integer TAG_ADMIN = 0;
+    public final static int TAG_ID = 0;
+    public final static int TAG_ADMIN = 0;
     AppDatabase mDb;
     User user;
     @Override
@@ -70,6 +71,8 @@ public class LoginActivity extends AppCompatActivity {
         id_user = sharedPreferences.getInt(String.valueOf(TAG_ID),0);
         admin = sharedPreferences.getInt(String.valueOf(TAG_ADMIN),0);
         Log.d("asasa", "onCreate: admin  "+admin);
+        startService(new Intent(getApplicationContext(),MyFirebaseMessagingService.class));
+        FirebaseMessaging.getInstance().subscribeToTopic("topic");
         if (admin==1){
             Intent intent = new Intent(LoginActivity.this, Dashboard.class);
             intent.putExtra(TAG_TOKEN, token);

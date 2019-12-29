@@ -108,13 +108,19 @@ public class UserFragment extends Fragment {
                 String nama_user = response.body().getName();
                 String email_user = response.body().getEmail();
                 String photo = response.body().getProfile_image();
+                if (photo == null){
+                    Glide.with(requireContext()).load(R.drawable.boy)
+                            .into(foto);
+                }else{
+                    Glide.with(requireContext()).load(photo)
+                            .into(foto);
+                }
 
                 namab.setText(nama_user);
                 emailb.setText(email_user);
                 nama.setText(nama_user);
                 email.setText(email_user);
-                Glide.with(requireContext()).load(photo)
-                        .into(foto);
+
                 Log.e(TAG, "onResponse: Masuk" );
             }
 

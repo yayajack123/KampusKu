@@ -18,11 +18,19 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon,android:label">
-        <activity android:name=".Fakultas.UpdateFakultas"></activity>
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:enabled="false"
+            android:exported="false"></service>
+        <service
+            android:name=".MyFirebaseInstanceIDService"
+            android:enabled="false"
+            android:exported="false" />
+
+        <activity android:name=".Fakultas.UpdateFakultas" />
         <activity android:name=".Fakultas.TambahFakultas" />
         <activity android:name=".Fakultas.Fakultas" />
         <activity android:name=".Admin.Pendaftar" />
-
         <activity android:name=".Image.GambarKampus" />
 
         <meta-data
