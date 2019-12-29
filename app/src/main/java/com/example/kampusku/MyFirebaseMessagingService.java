@@ -35,7 +35,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Apps targeting SDK 26 or above (Android O) must implement notification channels and add its notifications
         to at least one of them. Therefore, confirm if version is Oreo or higher, then setup notification channel
       */
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             setupChannels(notificationManager);
         }
 

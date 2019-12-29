@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.Log;
@@ -21,6 +23,8 @@ import com.example.kampusku.ApiHelper.UtilsApi;
 import com.example.kampusku.Database.AppDatabase;
 import com.example.kampusku.Database.AppExecutors;
 import com.example.kampusku.Model.User;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONException;
@@ -71,9 +75,13 @@ public class LoginActivity extends AppCompatActivity {
         id_user = sharedPreferences.getInt(String.valueOf(TAG_ID),0);
         admin = sharedPreferences.getInt(String.valueOf(TAG_ADMIN),0);
         Log.d("asasa", "onCreate: admin  "+admin);
+
         startService(new Intent(getApplicationContext(),MyFirebaseMessagingService.class));
         FirebaseMessaging.getInstance().subscribeToTopic("topic");
+
         if (admin==1){
+//            startService(new Intent(getApplicationContext(),MyFirebaseMessagingService.class));
+//            FirebaseMessaging.getInstance().subscribeToTopic("topic");
             Intent intent = new Intent(LoginActivity.this, Dashboard.class);
             intent.putExtra(TAG_TOKEN, token);
             intent.putExtra(String.valueOf(TAG_ID),id_user);

@@ -192,6 +192,7 @@ public class DetailRecylerViewAdapter extends RecyclerView.Adapter<DetailRecyler
                 new com.android.volley.Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
+                        System.out.println(response.toString());
                         Log.i(TAG, "onResponse: " + response.toString());
 
                     }
