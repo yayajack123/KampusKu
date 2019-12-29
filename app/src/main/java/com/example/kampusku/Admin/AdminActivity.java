@@ -59,28 +59,6 @@ public class AdminActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
-        sharedPreferences = this.getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
-        session = sharedPreferences.getBoolean(SESSION_STATUS, false);
-        token = sharedPreferences.getString(TAG_TOKEN, null);
-        id_user = sharedPreferences.getInt(String.valueOf(TAG_ID),0);
-        admin = sharedPreferences.getInt(String.valueOf(TAG_ADMIN),0);
-        Log.d("id user", "id: "+id_user);
-        btnLogout = (Button) findViewById(R.id.logout);
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Menghapus Status login dan kembali ke Login Activity
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                editor.remove(SESSION_STATUS);
-                editor.remove(TAG_TOKEN);
-                editor.remove(String.valueOf(TAG_ID));
-                editor.remove(String.valueOf(TAG_ADMIN));
-                editor.apply();
-                startActivity(new Intent(getBaseContext(), AdminLoginActivity.class));
-                finish();
-            }
-        });
-
         gaskan = (FloatingActionButton) findViewById(R.id.tambah);
         gaskan.setOnClickListener(new View.OnClickListener() {
             @Override

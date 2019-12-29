@@ -15,6 +15,16 @@ public class ResultDaftar {
     int biaya;
     int fee;
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    String name;
+
     public String getNama_univ() {
         return nama_univ;
     }

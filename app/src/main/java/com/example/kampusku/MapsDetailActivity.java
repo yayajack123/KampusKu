@@ -30,6 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MapsDetailActivity extends AppCompatActivity {
 
     private String city;
+    private String kata;
     public static final String URL = "https://kampusjack.000webhostapp.com/api/";
     private List<ResultKampus> results = new ArrayList<>();
     private KampusRecyclerUserAdapter viewAdapter;
@@ -47,6 +48,13 @@ public class MapsDetailActivity extends AppCompatActivity {
 
         TextView kota = (TextView) findViewById(R.id.city_id);
         kota.setText(city);
+
+        String mystring = city;
+        String[] arr = mystring.split(" ", 0);
+
+        String firstWord = arr[0];
+        kata = firstWord;
+        Log.d("kota", "first word : "+firstWord);
 
         Log.d("logmapsdetail","CITYDETAIL :"+city);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_search);
@@ -67,7 +75,7 @@ public class MapsDetailActivity extends AppCompatActivity {
                 .build();
         BaseApiHelper api = retrofit.create(BaseApiHelper.class);
         progressBar = (ProgressBar) findViewById(R.id.progress_bar);
-        Call<GetKampus> call = api.SearchKampus(city);
+        Call<GetKampus> call = api.SearchKampus(kata);
         Log.e("PROGRESSSS", "SUDAH SAMPAI SINI");
         call.enqueue(new Callback<GetKampus>() {
             @Override

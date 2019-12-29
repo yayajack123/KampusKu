@@ -134,7 +134,7 @@ public class AdminLoginActivity extends AppCompatActivity {
                                         Log.d("login admin","dalam login admin :"+is_admin);
                                         editor.apply();
                                         Toast.makeText(mContext, "Login Sebagai Admin "+id, Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(mContext, AdminActivity.class);
+                                        Intent intent = new Intent(mContext, Dashboard.class);
                                         startActivity(intent);
                                         finish();
                                     }else {

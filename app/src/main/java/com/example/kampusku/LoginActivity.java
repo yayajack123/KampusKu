@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.kampusku.Admin.AdminActivity;
 import com.example.kampusku.Admin.AdminLoginActivity;
+import com.example.kampusku.Admin.Dashboard;
 import com.example.kampusku.ApiHelper.BaseApiHelper;
 import com.example.kampusku.ApiHelper.UtilsApi;
 import com.example.kampusku.Database.AppDatabase;
@@ -70,14 +71,14 @@ public class LoginActivity extends AppCompatActivity {
         admin = sharedPreferences.getInt(String.valueOf(TAG_ADMIN),0);
         Log.d("asasa", "onCreate: admin  "+admin);
         if (admin==1){
-            Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
+            Intent intent = new Intent(LoginActivity.this, Dashboard.class);
             intent.putExtra(TAG_TOKEN, token);
             intent.putExtra(String.valueOf(TAG_ID),id_user);
             intent.putExtra(String.valueOf(TAG_ADMIN),admin);
             finish();
             startActivity(intent);
         }
-        if(id_user!=NULL){
+        if(admin!=0 && admin!=1){
             Intent intent = new Intent(LoginActivity.this, BottomActivity.class);
             intent.putExtra(TAG_TOKEN, token);
             intent.putExtra(String.valueOf(TAG_ID),id_user);

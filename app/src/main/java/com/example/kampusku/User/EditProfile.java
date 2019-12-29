@@ -116,12 +116,16 @@ public class EditProfile extends AppCompatActivity {
         File file = new File(mediaPath);
 
         // Parsing any Media type file
+//        String name = nama.getText().toString();
+//        String Email = email.getText().toString();
         RequestBody requestBody = RequestBody.create(MediaType.parse("*/*"), file);
         MultipartBody.Part fileToUpload = MultipartBody.Part.createFormData("photo", file.getName(), requestBody);
         RequestBody filename = RequestBody.create(MediaType.parse("text/plain"), file.getName());
+        RequestBody name = RequestBody.create(MediaType.parse("text/plain"), nama.getText().toString());
+        RequestBody Email = RequestBody.create(MediaType.parse("text/plain"), email.getText().toString());
 
-        mApiService.updateuser(id_user,fileToUpload,nama.getText().toString(),
-                email.getText().toString()).
+        mApiService.updateuser(id_user,fileToUpload,name,
+                Email).
                 enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {

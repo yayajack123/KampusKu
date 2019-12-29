@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "544085863753",
+    "firebase_url": "https://kampusku-64da1.firebaseio.com",
+    "project_id": "kampusku-64da1",
+    "storage_bucket": "kampusku-64da1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:544085863753:android:eb6a52f83a51b08a5e7e98",
+        "android_client_info": {
+          "package_name": "com.example.kampusku"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "544085863753-epdpa8968tvcj1cre23cis0s21pqljsa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kampusku",
+            "certificate_hash": "a08fab08d7582176d8be76fd835e0161c10b78a2"
+          }
+        },
+        {
+          "client_id": "544085863753-4n5050sgv4uai6lc75g6ielj31qbbvgo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC31FWCXC0rMkB8jXms9vuIgj92vV-E74o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "544085863753-4n5050sgv4uai6lc75g6ielj31qbbvgo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

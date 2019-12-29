@@ -4,23 +4,16 @@ import com.example.kampusku.Daftar.GetDaftar;
 import com.example.kampusku.Fakultas.GetFakultas;
 import com.example.kampusku.Kampus.GetDetail;
 import com.example.kampusku.Kampus.GetKampus;
-import com.example.kampusku.Kampus.PostPutDelKampus;
-import com.example.kampusku.Kampus.ResultKampus;
-import com.example.kampusku.Prodi.GetProdi;
 import com.example.kampusku.User.ValueUser;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
-import retrofit2.Response;
 import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
-import retrofit2.http.HEAD;
-import retrofit2.http.HTTP;
-import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -69,14 +62,14 @@ public interface BaseApiHelper {
 
 
     @FormUrlEncoded
-    @PUT("kampus/{id}")
+    @POST("kampus/{id}")
     Call<ResponseBody> kampusUpdate(@Path("id") int id ,
                                     @Field("nama_univ") String nama_univ,
                                      @Field("tentang") String tentang,
                                      @Field("lokasi") String lokasi);
 
 
-    @DELETE("kampus/{id}")
+    @POST("deluniv/{id}")
     Call<ResponseBody> kampusDelete(@Path("id") int id);
 
     @GET("kampus/{id}")
@@ -94,7 +87,7 @@ public interface BaseApiHelper {
                                     @Field("id_univ") int id_univ);
 
     @FormUrlEncoded
-    @PUT("prodi/{id}")
+    @POST("prodi/{id}")
     Call<ResponseBody> UpdateProdi(@Path("id") int id ,
                                    @Field("nama_prodi") String nama_univ,
                                    @Field("tentang") String tentang,
@@ -102,11 +95,14 @@ public interface BaseApiHelper {
                                    @Field("id_fakultas") int id_fakultas,
                                    @Field("id_univ") int id_univ);
 
-    @DELETE("prodi/{id}")
+    @POST("prodi/{id}")
     Call<ResponseBody> DeleteProdi(@Path("id") int id);
 
     @GET("getDaftar/{id}")
     Call<GetDaftar> GetDaftar(@Path("id") int id);
+
+    @GET("daftar")
+    Call<GetDaftar> daftar();
 
     @FormUrlEncoded
     @POST("daftar")
@@ -115,7 +111,7 @@ public interface BaseApiHelper {
                                    @Field("id_user") int id_user,
                                    @Field("id_prodi") int id_prodi);
 
-    @DELETE("daftar/{id}")
+    @POST("daftar/{id}")
     Call<ResponseBody> DeleteDaftar(@Path("id") int id);
 
     @Multipart
@@ -127,7 +123,19 @@ public interface BaseApiHelper {
     @POST("edituser/{id}")
     Call<ResponseBody> updateuser(@Path("id") int id,
                                   @Part MultipartBody.Part file,
-                                  @Part("name") String nama,
-                                  @Part("email") String email);
+                                  @Part("name") RequestBody nama,
+                                  @Part("email") RequestBody email);
+
+    @FormUrlEncoded
+    @POST("fakultas")
+    Call<ResponseBody> requestFakultas(@Field("nama_fakultas") String nama_fakultas);
+
+    @FormUrlEncoded
+    @POST("fakultas/{id}")
+    Call<ResponseBody> updateFakultas(  @Path("id") int id,
+                                        @Field("nama_fakultas") String nama_fakultas);
+
+    @POST("delfak/{id}")
+    Call<ResponseBody> DeleteFakultas(@Path("id") int id);
 
 }
