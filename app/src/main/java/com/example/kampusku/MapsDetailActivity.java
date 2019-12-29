@@ -50,9 +50,9 @@ public class MapsDetailActivity extends AppCompatActivity {
         kota.setText(city);
 
         String mystring = city;
-        String[] arr = mystring.split(" ", 0);
+        String[] arr = mystring.split(" ", 1);
 
-        String firstWord = arr[0];
+        String firstWord = arr[1];
         kata = firstWord;
         Log.d("kota", "first word : "+firstWord);
 
