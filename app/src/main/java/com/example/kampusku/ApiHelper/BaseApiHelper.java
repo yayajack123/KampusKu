@@ -114,7 +114,7 @@ public interface BaseApiHelper {
                                    @Field("id_user") int id_user,
                                    @Field("id_prodi") int id_prodi);
 
-    @POST("daftar/{id}")
+    @POST("deldaftar/{id}")
     Call<ResponseBody> DeleteDaftar(@Path("id") int id);
 
     @Multipart

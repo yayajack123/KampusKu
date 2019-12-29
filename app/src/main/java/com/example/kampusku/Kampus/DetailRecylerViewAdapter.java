@@ -130,8 +130,8 @@ public class DetailRecylerViewAdapter extends RecyclerView.Adapter<DetailRecyler
 
 
                                                         TOPIC = "/topics/topic"; //topic must match with what the receiver subscribed to
-                                                        NOTIFICATION_TITLE = "Pengumuman";
-                                                        NOTIFICATION_MESSAGE = "Ada Yang Tersesat";
+                                                        NOTIFICATION_TITLE = "Notifikasi";
+                                                        NOTIFICATION_MESSAGE = "Ada Pendaftar Kampus Baru";
 
 
                                                         JSONObject notification = new JSONObject();
