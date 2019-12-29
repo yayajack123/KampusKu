@@ -14,9 +14,11 @@ import android.widget.Toast;
 
 import com.example.kampusku.ApiHelper.BaseApiHelper;
 import com.example.kampusku.ApiHelper.UtilsApi;
+import com.example.kampusku.MyFirebaseMessagingService;
 import com.example.kampusku.R;
 import com.example.kampusku.RegisterActivity;
 import com.example.kampusku.TokenManager;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -67,6 +69,8 @@ public class AdminLoginActivity extends AppCompatActivity {
         id_user = sharedPreferences.getInt(String.valueOf(TAG_ID),0);
         admin = sharedPreferences.getInt(String.valueOf(TAG_ADMIN),0);
         Log.d("asasa", "onCreate: admin  "+admin);
+        startService(new Intent(getApplicationContext(), MyFirebaseMessagingService.class));
+        FirebaseMessaging.getInstance().subscribeToTopic("topic");
         if(admin==1){
             Intent intent = new Intent(AdminLoginActivity.this, AdminActivity.class);
             intent.putExtra(TAG_TOKEN, token);

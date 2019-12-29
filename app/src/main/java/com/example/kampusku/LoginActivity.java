@@ -76,8 +76,8 @@ public class LoginActivity extends AppCompatActivity {
         admin = sharedPreferences.getInt(String.valueOf(TAG_ADMIN),0);
         Log.d("asasa", "onCreate: admin  "+admin);
 
-        startService(new Intent(getApplicationContext(),MyFirebaseMessagingService.class));
-        FirebaseMessaging.getInstance().subscribeToTopic("topic");
+//        startService(new Intent(getApplicationContext(), MyFirebaseMessagingService.class));
+//        FirebaseMessaging.getInstance().subscribeToTopic("topic");
 
         if (admin==1){
 //            startService(new Intent(getApplicationContext(),MyFirebaseMessagingService.class));
