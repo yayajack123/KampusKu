@@ -103,13 +103,7 @@
                 android:layout_height="wrap_content"
                 android:text="edit profil"
                 style="@style/loginButton"/>
-            <Button
-                android:layout_marginTop="20sp"
-                android:layout_below="@+id/edit_profil"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="ubah password"
-                style="@style/loginButton"/>
+
         </RelativeLayout>
         <View style="@style/proifleDetailsView" />
 
