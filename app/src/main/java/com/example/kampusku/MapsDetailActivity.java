@@ -19,6 +19,7 @@ import com.example.kampusku.Kampus.KampusRecyclerViewAdapter;
 import com.example.kampusku.Kampus.ResultKampus;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
@@ -50,11 +51,14 @@ public class MapsDetailActivity extends AppCompatActivity {
         kota.setText(city);
 
         String mystring = city;
-        String[] arr = mystring.split(" ", 1);
-
-        String firstWord = arr[1];
-        kata = firstWord;
-        Log.d("kota", "first word : "+firstWord);
+        String[] arr = mystring.split(" ");
+        int size = arr.length;
+        if (size==1){
+            kata = arr[0];
+        }else {
+            kata = arr[1];
+        }
+        Log.d("test", "onCreate: "+kata);
 
         Log.d("logmapsdetail","CITYDETAIL :"+city);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_search);
