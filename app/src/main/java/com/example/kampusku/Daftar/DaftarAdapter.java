@@ -1,5 +1,6 @@
 package com.example.kampusku.Daftar;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import androidx.annotation.NonNull;
@@ -95,6 +96,7 @@ public class DaftarAdapter extends RecyclerView.Adapter<DaftarAdapter.ViewHolder
                                                 Toast.makeText(context, "BERHASIL MENGHAPUS", Toast.LENGTH_SHORT).show();
                                                 Intent mIntent = new Intent(context, Daftar.class);
                                                 context.startActivity(mIntent);
+                                                ((Activity)context).finish();
                                             } else {
                                                 Toast.makeText(context, "Gagal", Toast.LENGTH_SHORT).show();
                                                 Log.i("debug", "onResponse: GA BERHASIL");
